@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const PostCard = () => {
@@ -7,7 +8,9 @@ const PostCard = () => {
                 <h2 className="card-title">Card title!</h2>
                 <p>If a dog chews shoes whose shoes does he choose?</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Explore watchlist</button>
+                    <Link href="/watchlists/1">
+                        <button className="btn btn-primary">Explore watchlist</button>
+                    </Link>
                 </div>
             </div>
         </div>

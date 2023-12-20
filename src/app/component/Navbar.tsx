@@ -11,10 +11,10 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="flex-none">
-                <button className="btn text-gray-950 btn-ghost">
+                <button className="btn text-white btn-ghost">
                     <Link href="/watchlists">Watchlists</Link>
                 </button>
-                <button className="btn text-gray-950 btn-ghost">
+                <button className="btn text-white btn-ghost">
                     <Link href="/create">Create List</Link>
                 </button>
             </div>
