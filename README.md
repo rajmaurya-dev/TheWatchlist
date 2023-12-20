@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Viewers - Share What You're Watching
 
-## Getting Started
+Viewers is a social platform that allows users to create watchlists of their favorite movies and TV shows and see what their friends are watching to get recommendations.
 
-First, run the development server:
+## About
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The goal of Viewers is to connect friends and enable discovery of new movies and shows based on the tastes of people you follow.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Key features include:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Create custom watchlists by title, genre, streaming service, etc
+- Follow friends and see additions to their watchlists in realtime
+- Get recommendations of new shows and movies based on watchlists from friends
+- Share watchlists on other social platforms
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Viewers recommends content based on the collective watchlist data from everyone in your network. The more active viewers you follow, the better recommendations you will get!
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+We welcome improvements from the community!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This project is licensed under the MIT license. See [LICENSE](LICENSE) for more details.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Let me know if you would like any additional sections or info included in the README! This covers some of the key points to introduce potential developers/contributors to the viewer concept and project.
