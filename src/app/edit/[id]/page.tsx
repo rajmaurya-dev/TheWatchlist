@@ -3,12 +3,13 @@ import { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { FormInputItem } from '@/types';
 
-interface FormItemProps {
-    submit: SubmitHandler<FormInputItem>;
-}
 
-const FormItem: FC<FormItemProps> = ({ submit }) => {
+
+const EditWatchlist = () => {
     const { register, handleSubmit } = useForm<FormInputItem>();
+    const submit: SubmitHandler<FormInputItem> = (data) => {
+        console.log(data)
+    }
 
     return (
         <form onSubmit={handleSubmit(submit)} className='flex flex-col justify-center items-center gap-5 mt-5 px-2'>
@@ -34,4 +35,4 @@ const FormItem: FC<FormItemProps> = ({ submit }) => {
     );
 };
 
-export default FormItem;
+export default EditWatchlist
