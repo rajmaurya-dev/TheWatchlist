@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model User {
+  id          Int         @id @default(autoincrement())
+  username    String      @unique
+  displayName String
+  role        Role        @default(Weebster) // Default role is Weebster
+  Watchlists  Watchlist[]
+}
+
+model Watchlist {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String
+  category    Category
+  createdAt   DateTime  @default(now())
+  isPublic    Boolean   @default(false)
+  items       Content[]
+  User        User      @relation(fields: [userId], references: [id])
+  userId      Int
+}
+
+model Content {
+  id          Int       @id @default(autoincrement())
+  title       String
+  genre       String
+  status      Status
+  rating      Float?
+  review      String?
+  watchlist   Watchlist @relation(fields: [watchlsitId], references: [id], onDelete: Cascade)
+  watchlsitId Int
+
+  @@index([watchlsitId])
+}
+
+// Enum types for category and status
+enum Category {
+  Movie
+  Anime
+  TVSeries
+}
+
+enum Status {
+  Watched
+  PlanningToWatch
+  Watching
+}
+
+enum Role {
+  Weebster
+  Binger
+  Filmhead
+}
