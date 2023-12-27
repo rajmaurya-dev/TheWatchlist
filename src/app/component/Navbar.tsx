@@ -1,3 +1,4 @@
+import { UserButton } from '@clerk/nextjs'
 import Link from 'next/link'
 import React from 'react'
 
@@ -17,6 +18,7 @@ const Navbar = () => {
                 <button className="btn text-white btn-ghost">
                     <Link href="/create">Create List</Link>
                 </button>
+                <UserButton afterSignOutUrl="/" />
             </div>
         </div>
     )

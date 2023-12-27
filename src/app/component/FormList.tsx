@@ -17,7 +17,7 @@ const FormList: FC<FormListProps> = ({ submit }) => {
                 <option disabled selected>Select category</option>
                 <option>Movie</option>
                 <option>Anime</option>
-                <option>TV Series</option>
+                <option>TVSeries</option>
 
             </select>
             <button className='btn w-full max-w-lg'>Create List</button>

@@ -1,19 +1,37 @@
+import { db } from "@/lib/db"
 import PostCard from "../component/PostCard"
+import { UserButton } from "@clerk/nextjs"
+import { auth, currentUser } from "@clerk/nextjs";
+const getWatchList = async () => {
+    const response = await db.watchlist.findMany({
+        include: {
+            items: true,
+        },
+    })
+    return response
+}
 
-const WatchList = () => {
+const WatchList = async () => {
+    const user = await currentUser()
+    const { userId } = auth()
+    const watchlist = await getWatchList()
+    console.log(user)
     return (
-        <div className="grid place-content-center md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 px-10">
-            <PostCard />
-            <PostCard />
-            <PostCard />
-            <PostCard />
-            <PostCard />
-            <PostCard />
-            <PostCard />
-            <PostCard />
-            <PostCard />
+        <section>
+            <div className="grid place-content-center md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 px-10">
+                {watchlist.map((watchlist) => (
+                    <PostCard
+                        key={watchlist.id}
+                        title={watchlist.title}
+                        description={watchlist.description}
+                        category={watchlist.category}
+                        id={watchlist.id}
+                    />
 
-        </div>
+                ))}
+
+            </div>
+        </section>
     )
 }
 
