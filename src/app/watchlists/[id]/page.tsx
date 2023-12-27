@@ -2,6 +2,7 @@ import BackButton from '@/app/component/BackButton'
 import ButtonAction from '@/app/component/ButtonAction'
 import ItemCard from '@/app/component/ItemCard'
 import { db } from '@/lib/db'
+import { auth } from '@clerk/nextjs'
 import React from 'react'
 interface Item {
     id: number;
@@ -19,7 +20,7 @@ interface DetailWatchlistProps {
 }
 
 const DetailWatchlist: React.FC<DetailWatchlistProps> = async ({ params }) => {
-
+    const { userId } = auth()
     const id = typeof params.id === 'string' ? parseInt(params.id) : params.id
     const watchlist = await db.watchlist.findFirst({
         where: {
@@ -30,6 +31,7 @@ const DetailWatchlist: React.FC<DetailWatchlistProps> = async ({ params }) => {
         }
 
     })
+    console.log(watchlist)
     return (
         <div className='px-10 pt-5'>
             <BackButton />
@@ -40,7 +42,8 @@ const DetailWatchlist: React.FC<DetailWatchlistProps> = async ({ params }) => {
                     <span className="badge badge-primary badge-outline">{watchlist?.category}</span>
                 </div>
                 <ItemCard items={watchlist?.items} />
-                <ButtonAction id={id} />
+                {userId === watchlist?.UserId && <ButtonAction id={id} />}
+
             </div>
         </div>
     )
