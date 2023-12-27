@@ -10,5 +10,6 @@ export interface FormInputItem {
   genre: string;
   status: "Watched" | "Planning to Watch" | "Watching";
   rating?: number;
+  watchlist: number;
   review?: string;
 }

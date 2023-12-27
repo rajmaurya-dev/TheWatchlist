@@ -27,7 +27,7 @@ const ButtonAction: React.FC<ButtonActionProps> = ({ id }) => {
     })
     return (
         <div className='my-1'>
-            <Link href='/edit/1' className='btn mr-2'><PlusCircle />Add</Link>
+            <Link href={`/add/${id}`} className='btn mr-2'><PlusCircle />Add</Link>
             <button onClick={() => deleteWatchlist()} className='btn btn-error'>
                 <Trash />
                 Delete</button>

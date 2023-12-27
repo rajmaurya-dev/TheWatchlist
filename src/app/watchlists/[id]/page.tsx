@@ -31,7 +31,7 @@ const DetailWatchlist: React.FC<DetailWatchlistProps> = async ({ params }) => {
         }
 
     })
-    console.log(watchlist)
+    console.log(watchlist?.items)
     return (
         <div className='px-10 pt-5'>
             <BackButton />
