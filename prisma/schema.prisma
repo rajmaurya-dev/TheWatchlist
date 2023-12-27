@@ -35,7 +35,6 @@ model Content {
   @@index([watchlsitId])
 }
 
-// Enum types for category and status
 enum Category {
   Movie
   Anime

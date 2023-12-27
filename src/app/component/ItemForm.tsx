@@ -12,7 +12,7 @@ const ItemForm: FC<ItemFormProps> = ({ submit, watchlist }) => {
 
 
     return (
-        <form onSubmit={handleSubmit(submit)} className='flex flex-col justify-center items-center gap-5 mt-5'>
+        <form onSubmit={handleSubmit(submit)} className='flex flex-col justify-center items-center gap-5 mt-5 mx-2'>
             <input {...register('title', { required: true })} type="text" placeholder="Item title" className="input input-bordered w-full max-w-lg" />
 
 
@@ -26,10 +26,10 @@ const ItemForm: FC<ItemFormProps> = ({ submit, watchlist }) => {
             </select>
 
             {/* Optional fields */}
-            <input {...register('rating')} type="number" placeholder="Rating" className="input input-bordered w-full max-w-lg" />
+            <input {...register('rating')} type="string" placeholder="Rating" className="input input-bordered w-full max-w-lg" />
             <select {...register('watchlist', { required: true })} className="select select-error w-full max-w-lg">
                 <option disabled value=''>Select watchlist</option>
-                {watchlist.map((watchlist: any) => (
+                {watchlist && watchlist.map((watchlist: any) => (
                     <option key={watchlist.id} value={watchlist.id}>{watchlist.title}</option>
                 ))}
             </select>
