@@ -2,16 +2,17 @@ import { db } from "@/lib/db"
 import PostCard from "../component/PostCard"
 import { UserButton } from "@clerk/nextjs"
 import { auth, currentUser } from "@clerk/nextjs";
-const getWatchList = async () => {
-    const response = await db.watchlist.findMany({
-        include: {
-            items: true,
-        },
-    })
-    return response
-}
+
 
 const WatchList = async () => {
+    const getWatchList = async () => {
+        const response = await db.watchlist.findMany({
+            include: {
+                items: true,
+            },
+        })
+        return response
+    }
     const user = await currentUser()
     const { userId } = auth()
     const watchlist = await getWatchList()
