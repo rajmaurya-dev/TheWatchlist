@@ -24,6 +24,7 @@ const CreateList = () => {
         },
         onSuccess: () => {
             router.push('/watchlists')
+            router.refresh()
         }
     })
 

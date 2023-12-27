@@ -1,7 +1,7 @@
 'use client'
 import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
-import { Delete, Pencil, Trash } from 'lucide-react'
+import { PlusCircle, Trash } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React from 'react'
@@ -22,11 +22,12 @@ const ButtonAction: React.FC<ButtonActionProps> = ({ id }) => {
         },
         onSuccess: () => {
             router.push('/watchlists')
+            router.refresh()
         }
     })
     return (
-        <div>
-            <Link href='/edit/1' className='btn mr-2'><Pencil />Edit</Link>
+        <div className='my-1'>
+            <Link href='/edit/1' className='btn mr-2'><PlusCircle />Add</Link>
             <button onClick={() => deleteWatchlist()} className='btn btn-error'>
                 <Trash />
                 Delete</button>

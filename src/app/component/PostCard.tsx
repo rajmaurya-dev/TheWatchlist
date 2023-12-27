@@ -10,7 +10,7 @@ interface PostCardProps {
 
 const PostCard: React.FC<PostCardProps> = ({ title, description, category, id }) => {
     return (
-        <div className="card w-96 bg-blue-900 shadow-xl">
+        <div className="card  bg-blue-900 shadow-xl ">
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
                 <p>{description}</p>
