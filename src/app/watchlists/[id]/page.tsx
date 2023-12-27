@@ -20,16 +20,16 @@ interface DetailWatchlistProps {
 
 const DetailWatchlist: React.FC<DetailWatchlistProps> = async ({ params }) => {
 
+    const id = typeof params.id === 'string' ? parseInt(params.id) : params.id
     const watchlist = await db.watchlist.findFirst({
         where: {
-            id: typeof params.id === 'string' ? parseInt(params.id) : params.id
+            id: id
         },
         include: {
             items: true
         }
 
     })
-    console.log(watchlist)
     return (
         <div className='px-10 pt-5'>
             <BackButton />
@@ -40,7 +40,7 @@ const DetailWatchlist: React.FC<DetailWatchlistProps> = async ({ params }) => {
                     <span className="badge badge-primary badge-outline">{watchlist?.category}</span>
                 </div>
                 <ItemCard items={watchlist?.items} />
-                <ButtonAction />
+                <ButtonAction id={id} />
             </div>
         </div>
     )
