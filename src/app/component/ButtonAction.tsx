@@ -5,6 +5,7 @@ import { PlusCircle, Trash } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React from 'react'
+import toast from 'react-hot-toast'
 
 interface ButtonActionProps {
     id: number
@@ -14,13 +15,28 @@ const ButtonAction: React.FC<ButtonActionProps> = ({ id }) => {
     console.log(typeof id)
     const router = useRouter()
     const { mutate: deleteWatchlist } = useMutation({
+
         mutationFn: async () => {
-            return axios.delete(`/api/watchlist/${id}`)
+            const confirmDelete = window.confirm('Are you sure you want to delete this watchlist?');
+            if (confirmDelete) {
+
+                toast.success('Watchlist deleted successfully')
+            } else {
+
+                throw new Error('Deletion canceled by user');
+            }
+
         },
         onError: (error) => {
-            console.log(error)
+            if (error.message === 'Deletion canceled by user') {
+                toast.success('Deletion canceled by user');
+            } else {
+                toast.error('Something went wrong. Please try again later or contact support.');
+                console.log(error);
+            }
         },
         onSuccess: () => {
+            toast.success('Watchlist deleted successfully')
             router.push('/watchlists')
             router.refresh()
         }
@@ -30,7 +46,7 @@ const ButtonAction: React.FC<ButtonActionProps> = ({ id }) => {
             <Link href={`/add/${id}`} className='btn mr-2'><PlusCircle />Add</Link>
             <button onClick={() => deleteWatchlist()} className='btn btn-error'>
                 <Trash />
-                Delete</button>
+                Delete Watchlist</button>
         </div>
     )
 }

@@ -8,6 +8,7 @@ import ItemForm from '@/app/component/ItemForm';
 import axios from 'axios';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 
 
@@ -23,9 +24,11 @@ const EditWatchlist = () => {
             return axios.post('/api/item/create', newContent)
         },
         onError: (error) => {
+            toast.error('something went wrong, please try again later or contact support')
             console.log(error)
         },
         onSuccess: () => {
+            toast.success('Content added successfully')
             router.back()
             router.refresh()
         }

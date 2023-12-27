@@ -4,6 +4,7 @@ import './globals.css'
 import Navbar from '@/app/component/Navbar'
 import Provider from './component/Provider'
 import { ClerkProvider } from '@clerk/nextjs'
+import { Toaster } from 'react-hot-toast'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,6 +26,7 @@ export default function RootLayout({
         </head>
         <body className={inter.className}>
           <Provider>
+            <Toaster />
             <Navbar />
             {children}
           </Provider>

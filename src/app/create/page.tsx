@@ -6,6 +6,7 @@ import BackButton from "../component/BackButton"
 import { useMutation } from "@tanstack/react-query"
 import axios from "axios"
 import { useRouter } from "next/navigation"
+import toast from "react-hot-toast"
 
 
 const CreateList = () => {
@@ -21,8 +22,10 @@ const CreateList = () => {
         },
         onError: (error) => {
             console.log(error)
+            toast.error('something went wrong, please try again later or contact support')
         },
         onSuccess: () => {
+            toast.success('Watchlist created successfully')
             router.push('/watchlists')
             router.refresh()
         }

@@ -26,7 +26,7 @@ const ItemForm: FC<ItemFormProps> = ({ submit, watchlist }) => {
             </select>
 
             {/* Optional fields */}
-            <input {...register('rating')} type="string" placeholder="Rating" className="input input-bordered w-full max-w-lg" />
+            <input {...register('rating', { min: 1, max: 10 })} type="number" placeholder="Rating" className="input input-bordered w-full max-w-lg" />
             <select {...register('watchlist', { required: true })} className="select select-error w-full max-w-lg">
                 <option disabled value=''>Select watchlist</option>
                 {watchlist && watchlist.map((watchlist: any) => (
@@ -34,7 +34,7 @@ const ItemForm: FC<ItemFormProps> = ({ submit, watchlist }) => {
                 ))}
             </select>
 
-            <textarea {...register('review')} placeholder="Review" className="textarea textarea-bordered textarea-sm w-full max-w-lg" />
+            <textarea {...register('review', { maxLength: 150 })} placeholder="write the review in less than 150 characters" className="textarea textarea-bordered textarea-sm w-full max-w-lg" />
 
             <button className='btn w-full max-w-lg'>Add to Watchlist</button>
         </form>
