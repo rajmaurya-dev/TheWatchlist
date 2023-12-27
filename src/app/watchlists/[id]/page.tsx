@@ -8,7 +8,7 @@ interface Item {
     title: string;
     genre: string;
     status: string;
-    rating: number | null; // Allow for a nullable number
+    rating: number | null
     review: string | null;
     watchlsitId: number;
 }
@@ -18,22 +18,17 @@ interface DetailWatchlistProps {
     }
 }
 
-export const getWatchList = async (id: number) => {
-    const intId = typeof id === 'string' ? parseInt(id) : id
-    const response = await db.watchlist.findFirst({
+const DetailWatchlist: React.FC<DetailWatchlistProps> = async ({ params }) => {
+
+    const watchlist = await db.watchlist.findFirst({
         where: {
-            id: intId
+            id: typeof params.id === 'string' ? parseInt(params.id) : params.id
         },
         include: {
             items: true
         }
 
     })
-
-    return response
-}
-const DetailWatchlist: React.FC<DetailWatchlistProps> = async ({ params }) => {
-    const watchlist = await getWatchList(params.id)
     console.log(watchlist)
     return (
         <div className='px-10 pt-5'>
