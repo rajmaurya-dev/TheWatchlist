@@ -16,7 +16,7 @@ const EditWatchlist = () => {
     const { register, handleSubmit } = useForm<FormInputItem>();
     const handleItemCreate: SubmitHandler<FormInputItem> = (data) => {
         createContent(data)
-        console.log(data)
+
     }
     const { mutate: createContent, isPending } = useMutation({
         mutationFn: (newContent: FormInputItem) => {

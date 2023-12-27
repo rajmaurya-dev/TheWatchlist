@@ -1,6 +1,6 @@
 import { db } from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
-import { auth } from "@clerk/nextjs";
+import { parse } from "path";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -11,7 +11,11 @@ export async function POST(req: NextRequest) {
         status: body.status,
         rating: parseFloat(body.rating),
         review: body.review,
-        watchlist: body.watchlist,
+        watchlist: {
+          connect: {
+            id: parseInt(body.watchlist),
+          },
+        },
       },
     });
     return NextResponse.json(content, { status: 200 });
