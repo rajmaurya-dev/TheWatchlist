@@ -33,20 +33,21 @@ const DetailWatchlist: React.FC<DetailWatchlistProps> = async ({ params }) => {
     })
     console.log(watchlist?.items)
     return (
-        <div className='px-10 pt-5'>
-            <div className='flex justify-between'>
+        <div className='px-10 pt-5  flex flex-col min-h-[88vh]'>
+            <BackButton />
 
-                <BackButton />
-                {userId === watchlist?.UserId && <ButtonAction id={id} />}
-            </div>
             <h1 className='text-center font-semibold text-blue-600 text-3xl'>{watchlist?.title}</h1>
             <div>
-                <div className='flex gap-2 items-start justify-center flex-col'>
+                <div className='flex gap-2 items-start justify-center flex-col my-2'>
                     <span className='font-semibold'>{watchlist?.description}</span>
                     <span className="badge badge-primary badge-outline">{watchlist?.category}</span>
                 </div>
                 <ItemCard items={watchlist?.items} />
 
+            </div>
+            <div className=' mt-10 pt-10'>
+
+                {userId === watchlist?.UserId && <ButtonAction id={id} />}
             </div>
         </div>
     )

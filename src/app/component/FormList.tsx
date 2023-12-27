@@ -14,7 +14,7 @@ const FormList: FC<FormListProps> = ({ submit }) => {
 
             <textarea {...register('description', { required: true })} placeholder="Description" className="textarea textarea-bordered textarea-sm w-full max-w-lg " ></textarea>
             <select {...register('category', { required: true })} className="select select-error w-full max-w-lg">
-                <option disabled selected>Select category</option>
+                <option disabled value=''>Select category</option>
                 <option>Movie</option>
                 <option>Anime</option>
                 <option>TVSeries</option>
