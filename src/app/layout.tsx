@@ -24,7 +24,7 @@ export default function RootLayout({
         <head>
           <link rel="icon" type="image/png" href='/logo.png' />
         </head>
-        <body className={inter.className}>
+        <body className={inter.className} >
           <Provider>
             <Toaster />
             <Navbar />
