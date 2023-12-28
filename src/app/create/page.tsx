@@ -32,7 +32,7 @@ const CreateList = () => {
     })
 
     return (
-        <div className="px-10">
+        <div className="px-10 min-h-[88vh]">
             <BackButton />
             <h1 className="text-2xl my-4 font-bold text-center text-white">Create Watcthlist</h1>
 
