@@ -11,7 +11,7 @@ interface PostCardProps {
 const PostCard: React.FC<PostCardProps> = ({ title, description, category, id }) => {
     return (
         <div className="card bg-transparent shadow-xl backdrop-filter backdrop-blur-lg rounded-xl overflow-hidden">
-            <div className="card-body p-6 bg-blue-900 bg-opacity-30 text-white">
+            <div className="card-body p-6 bg-blue-300 bg-opacity-30 text-white">
                 <h2 className="card-title text-2xl font-bold">{title}</h2>
                 <p className="mt-4">{description}</p>
                 <span className="badge badge-primary badge-outline">{category}</span>

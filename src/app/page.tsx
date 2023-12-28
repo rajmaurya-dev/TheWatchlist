@@ -4,9 +4,10 @@ import Link from 'next/link'
 export default function Home() {
   return (
     <div className="hero min-h-[88vh] " >
-      <div className="hero-overlay opacity-50"></div>
+      <div className=""></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-lg">
+
           <div className='grid place-content-center'>
             <img src="/logo.png" alt="logo" className='max-w-xs' />
           </div>

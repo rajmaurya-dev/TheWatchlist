@@ -12,20 +12,14 @@ const Navbar = () => {
                     <img src="/logo.png" className='w-14' alt="" />
                 </Link>
             </div>
-            <div className="">
-                <button className="btn text-white btn-ghost text-xs">
-                    <Link href="/watchlists">Feed</Link>
-                </button>
-                <button className="btn text-white btn-ghost text-xs ">
-                    <Link href="/create">Create List</Link>
-                </button>
-
+            <div className="flex gap-5">
+                <Link href="/watchlists">Feed</Link>
+                <Link href="/create">Create List</Link>
                 {
-                    userId ? <button className="btn text-white btn-ghost text-xs">
+                    userId ?
                         <Link href="/my">My Watchlists</Link>
-                    </button> : null
+                        : null
                 }
-
                 <UserButton afterSignOutUrl="/" />
             </div>
         </div>

@@ -19,13 +19,13 @@ const ItemCard: React.FC<ItemCardProps> = ({ items }) => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {items!.map((item) => (
-                <div key={item.id} className="bg-blue-500 bg-opacity-30 p-4 rounded-md shadow-md">
-                    <h2 className="text-xl font-bold uppercase text-black mb-2">{item.title}</h2>
-                    <p className="text-gray-600 font-medium mb-2">{item.genre}</p>
-                    <p className="text-gray-600 font-medium mb-2">Status: {item.status}</p>
-                    <p className="text-gray-600 font-medium mb-2">Rating: {item.rating}</p>
-                    <p className="text-gray-600 font-medium mb-2">Review: {item.review}</p>
-                    <p className="text-gray-600 font-medium">Watchlist ID: {item.watchlsitId}</p>
+                <div key={item.id} className="bg-blue-600 bg-opacity-30 p-4 bg-transparent shadow-xl backdrop-filter backdrop-blur-lg rounded-xl overflow-hidden">
+                    <h2 className="text-xl font-bold uppercase text-gray-800 mb-2">{item.title}</h2>
+                    <p className="text-white font-normal mb-2">{item.genre}</p>
+                    <p className="text-white font-normal mb-2">Status: {item.status}</p>
+                    <p className="text-white font-normal mb-2">Rating: {item.rating}</p>
+                    <p className="text-white font-normal mb-2">Review: {item.review}</p>
+                    <p className="text-white font-normal">Watchlist ID: {item.watchlsitId}</p>
                 </div>
             ))}
         </div>

@@ -25,7 +25,9 @@ const MyWatchlist = () => {
                         id={watchlist.id}
                     />
 
-                )) : <h1>Loading....</h1>}
+                )) :
+                    <span className="loading loading-dots loading-lg"></span>
+                }
 
             </div>
         </section>
