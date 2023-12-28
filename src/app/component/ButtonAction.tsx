@@ -1,4 +1,5 @@
 'use client'
+
 import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
 import { PlusCircle, Trash } from 'lucide-react'
@@ -12,15 +13,15 @@ interface ButtonActionProps {
 
 }
 const ButtonAction: React.FC<ButtonActionProps> = ({ id }) => {
-    console.log(typeof id)
+
     const router = useRouter()
     const { mutate: deleteWatchlist } = useMutation({
 
         mutationFn: async () => {
             const confirmDelete = window.confirm('Are you sure you want to delete this watchlist?');
             if (confirmDelete) {
+                return axios.delete(`/api/watchlist/${id}`)
 
-                toast.success('Watchlist deleted successfully')
             } else {
 
                 throw new Error('Deletion canceled by user');
@@ -36,9 +37,11 @@ const ButtonAction: React.FC<ButtonActionProps> = ({ id }) => {
             }
         },
         onSuccess: () => {
+            const revalidate = 30
             toast.success('Watchlist deleted successfully')
             router.push('/watchlists')
             router.refresh()
+
         }
     })
     return (

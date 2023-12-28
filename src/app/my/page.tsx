@@ -5,12 +5,13 @@ import PostCard from '../component/PostCard'
 import { useQuery } from '@tanstack/react-query'
 
 const MyWatchlist = () => {
-    const { data: watchlist, isLoading: isLoadingUserWatchlist } = useQuery({
+    const { data: watchlist, isLoading: isLoadingUserWatchlist, refetch } = useQuery({
         queryKey: ['title'],
         queryFn: async () => {
             const response = await axios.get('/api/watchlist/my')
             return response.data
         },
+
 
     })
     return (

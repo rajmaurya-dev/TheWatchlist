@@ -15,14 +15,16 @@ export async function DELETE(req: NextRequest, context: contextProps) {
       typeof params.watchlistId === "string"
         ? parseInt(params.watchlistId)
         : params.watchlistId;
-    console.log("type os 666", typeof id);
+
     const { userId } = auth();
+
     await db.watchlist.delete({
       where: {
         id: id,
         UserId: userId!,
       },
     });
+
     return new Response(null, { status: 204 });
   } catch (error) {
     console.log(error);

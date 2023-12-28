@@ -19,6 +19,7 @@ interface DetailWatchlistProps {
     }
 }
 
+
 const DetailWatchlist: React.FC<DetailWatchlistProps> = async ({ params }) => {
     const { userId } = auth()
     const id = typeof params.id === 'string' ? parseInt(params.id) : params.id
@@ -31,6 +32,7 @@ const DetailWatchlist: React.FC<DetailWatchlistProps> = async ({ params }) => {
         }
 
     })
+
     console.log(watchlist?.items)
     return (
         <div className='px-10 pt-5  flex flex-col min-h-[88vh]'>
