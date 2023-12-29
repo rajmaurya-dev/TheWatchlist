@@ -19,6 +19,7 @@ model Watchlist {
   createdAt   DateTime  @default(now())
   isPublic    Boolean   @default(false)
   items       Content[]
+  movieTv     MovieTv[]
   UserId      String
 }
 
@@ -35,6 +36,17 @@ model Content {
   @@index([watchlsitId])
 }
 
+model MovieTv {
+  id          Int       @id @default(autoincrement())
+  MovieId     Int
+  status      Status
+  rating      Float?
+  watchlist   Watchlist @relation(fields: [watchlistId], references: [id], onDelete: Cascade)
+  watchlistId Int
+
+  @@index([watchlistId])
+}
+
 enum Category {
   Movie
   Anime
@@ -43,7 +55,7 @@ enum Category {
 
 enum Status {
   Watched
-  PlanningToWatch
+  Scheduling
   Watching
 }
 

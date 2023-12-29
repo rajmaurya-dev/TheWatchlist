@@ -9,6 +9,8 @@ const WatchList = async () => {
             items: true
         }
     })
+
+
     return (
         <section>
             <div className="grid place-content-center md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 px-10">
