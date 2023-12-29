@@ -46,8 +46,7 @@ const AddModal: React.FC<ModalProps> = ({ showModal, onClose, movieId }) => {
         },
         onSuccess: () => {
             toast.success('Content added successfully')
-            router.back()
-            router.refresh()
+
         }
     })
     useEffect(() => {
