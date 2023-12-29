@@ -6,9 +6,6 @@ import { Search } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-interface DropdownProps {
-    searchQuery: string;
-}
 interface FormInputs {
     searchQuery: string;
 }
@@ -19,7 +16,7 @@ const fetchMovies = async (searchQuery: string) => {
     return data;
 };
 
-const Dropdown: React.FC<DropdownProps> = () => {
+const Dropdown = () => {
     const { register, handleSubmit } = useForm<FormInputs>();
     const [searchQuery, setSearchQuery] = useState('');
     const { data, isLoading, error } = useQuery({
