@@ -1,6 +1,7 @@
 import BackButton from '@/app/component/BackButton'
 import ButtonAction from '@/app/component/ButtonAction'
 import ItemCard from '@/app/component/ItemCard'
+import MovieDetail from '@/app/component/MovieDetail'
 import { db } from '@/lib/db'
 import { auth } from '@clerk/nextjs'
 import React from 'react'
@@ -28,12 +29,12 @@ const DetailWatchlist: React.FC<DetailWatchlistProps> = async ({ params }) => {
             id: id
         },
         include: {
-            items: true
+            movieTv: true
         }
 
     })
 
-    console.log(watchlist?.items)
+
     return (
         <div className='px-10 pt-5  flex flex-col min-h-[88vh]'>
             <BackButton />
@@ -44,7 +45,12 @@ const DetailWatchlist: React.FC<DetailWatchlistProps> = async ({ params }) => {
                     <span className='font-semibold'>{watchlist?.description}</span>
                     <span className="badge badge-primary badge-outline">{watchlist?.category}</span>
                 </div>
-                <ItemCard items={watchlist?.items} />
+
+                <div className='grid gap-8 grid-cols-2 md:grid-cols-3  '>
+                    {watchlist?.movieTv.map((item) => (
+                        <MovieDetail key={item.id} movieId={item.MovieId} />
+                    ))}
+                </div>
 
             </div>
             <div className=' mt-10 pt-10'>

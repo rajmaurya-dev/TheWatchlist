@@ -32,7 +32,7 @@ const AddModal: React.FC<ModalProps> = ({ showModal, onClose, movieId }) => {
 
     })
     const onSubmit = (data: FormInputs) => {
-        console.log(data);
+
         createContent(data)
         onClose();
     };
@@ -42,7 +42,7 @@ const AddModal: React.FC<ModalProps> = ({ showModal, onClose, movieId }) => {
         },
         onError: (error) => {
             toast.error('something went wrong, please try again later or contact support')
-            console.log(error)
+
         },
         onSuccess: () => {
             toast.success('Content added successfully')
