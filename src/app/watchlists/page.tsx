@@ -5,8 +5,8 @@ import { auth, currentUser } from "@clerk/nextjs";
 
 const WatchList = async () => {
     const watchlist = await db.watchlist.findMany({
-        include: {
-            items: true
+        where: {
+            isPublic: true
         }
     })
 

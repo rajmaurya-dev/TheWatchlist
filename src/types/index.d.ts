@@ -1,6 +1,7 @@
 export interface FormInputList {
   title: string;
   description: string;
+  isPublic: boolean;
   category: "Movie" | "Anime" | "TV Series";
 }
 

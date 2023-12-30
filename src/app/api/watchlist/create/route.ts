@@ -9,10 +9,12 @@ export async function POST(req: NextRequest) {
       data: {
         title: body.title,
         description: body.description,
+        isPublic: Boolean(body.isPublic),
         category: body.category,
         UserId: userId!,
       },
     });
+    console.log(watchlist);
     return NextResponse.json(watchlist, { status: 200 });
   } catch (error) {
     console.log(error);

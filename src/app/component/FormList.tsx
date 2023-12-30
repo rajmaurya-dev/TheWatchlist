@@ -13,6 +13,18 @@ const FormList: FC<FormListProps> = ({ submit }) => {
             <input {...register('title', { required: true })} type="text" placeholder="Top psychological thriller" className="input input-bordered w-full max-w-lg" />
 
             <textarea {...register('description', { required: true })} placeholder="Description" className="textarea textarea-bordered textarea-sm w-full max-w-lg " ></textarea>
+            <div className="flex items-center">
+                <label className="label">
+                    <span className="label-text">Public</span>
+                </label>
+                <input {...register('isPublic')} type="radio" value="true" className="radio radio-primary" />
+                <label className="label">
+                    <span className="label-text">Private</span>
+                </label>
+                <input {...register('isPublic')} type="radio" value="" className="radio radio-primary" />
+            </div>
+
+
             <select {...register('category', { required: true })} className="select select-error w-full max-w-lg">
                 <option disabled value=''>Select category</option>
                 <option>Movie</option>
