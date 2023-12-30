@@ -6,7 +6,7 @@ import React from 'react'
 const Navbar = () => {
     const { userId } = auth()
     return (
-        <div className="navbar bg-transparent  px-2">
+        <div className="navbar bg-transparent px-2 h-[60px]">
             <div className="flex-1">
                 <Link href="/">
                     <img src="/logo.png" className='w-14' alt="" />

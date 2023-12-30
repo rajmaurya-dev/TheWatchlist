@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div className=" min-h-[88vh] " >
+    <div className=" min-h-[88dvh] " >
 
       <div className=" grid place-content-center">
         <div className="max-w-xl text-center">

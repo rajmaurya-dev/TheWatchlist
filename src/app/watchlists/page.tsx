@@ -13,7 +13,7 @@ const WatchList = async () => {
 
     return (
         <section>
-            <div className="grid place-content-center md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 px-10">
+            <div className="grid place-content-center md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 px-10 ">
                 {watchlist.map((watchlist) => (
                     <PostCard
                         key={watchlist.id}

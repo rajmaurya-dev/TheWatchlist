@@ -43,7 +43,7 @@ const MovieDetail: React.FC<MovieDetailProps> = ({ movieId }) => {
                 alt={movie.title}
             />
             <div className="flex flex-col justify-center text-white mt-2 lg:mt-0 lg:ml-4">
-                <h2 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-2">{movie.title}</h2>
+                <h2 className="text-sm lg:text-xl xl:text-2xl font-bold mb-2 line-clamp-1">{movie.title}</h2>
                 <p className="mb-2 text-sm lg:text-base">
                     {movie.genres.map((genre) => genre.name).join(', ')}
                 </p>

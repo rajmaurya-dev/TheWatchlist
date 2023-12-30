@@ -16,7 +16,7 @@ const MyWatchlist = () => {
     })
     return (
         <section className=''>
-            <div className="grid place-content-start md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 px-10 min-h-[88vh]">
+            <div className="grid place-content-start md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 px-10 ">
                 {watchlist ? watchlist.map((watchlist: any) => (
                     <PostCard
                         key={watchlist.id}
