@@ -11,7 +11,7 @@ export default function Home() {
           <div className='grid place-content-center'>
             <img src="/logo.png" alt="logo" className='max-w-xs' />
           </div>
-          <h1 className="mb-5 text-5xl font-bold text-orange-600"> Welcome to Viewers</h1>
+          <h1 className="mb-5 text-5xl font-bold text-orange-600"> Welcome to Watchlist</h1>
           <p className="mb-5 text-center">Connect with friends and get recommendations on the latest movies, TV shows, and more</p>
           <Link href='/create'>
 
