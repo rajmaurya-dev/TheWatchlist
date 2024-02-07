@@ -5,7 +5,7 @@ interface PostCardProps {
     title: string
     description: string
     category: string
-    id: number
+    id: string
 }
 
 const PostCard: React.FC<PostCardProps> = ({ title, description, category, id }) => {
