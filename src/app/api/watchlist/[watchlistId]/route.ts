@@ -4,23 +4,19 @@ import { auth } from "@clerk/nextjs";
 
 interface contextProps {
   params: {
-    watchlistId: number;
+    watchlistId: string;
   };
 }
 
 export async function DELETE(req: NextRequest, context: contextProps) {
   try {
     const { params } = context;
-    const id =
-      typeof params.watchlistId === "string"
-        ? parseInt(params.watchlistId)
-        : params.watchlistId;
 
     const { userId } = auth();
 
     await db.watchlist.delete({
       where: {
-        id: id,
+        id: params.watchlistId,
         UserId: userId!,
       },
     });

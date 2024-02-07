@@ -1,18 +1,15 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider     = "mysql"
+  provider     = "mongodb"
   url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
 model Watchlist {
-  id          Int       @id @default(autoincrement())
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
   title       String
   description String
   category    Category
@@ -24,25 +21,25 @@ model Watchlist {
 }
 
 model Content {
-  id          Int       @id @default(autoincrement())
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
   title       String
   genre       String
   status      Status
   rating      Float?
   review      String?
   watchlist   Watchlist @relation(fields: [watchlsitId], references: [id], onDelete: Cascade)
-  watchlsitId Int
+  watchlsitId String    @db.ObjectId
 
   @@index([watchlsitId])
 }
 
 model MovieTv {
-  id          Int       @id @default(autoincrement())
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
   MovieId     Int
   status      Status
   rating      Float?
   watchlist   Watchlist @relation(fields: [watchlistId], references: [id], onDelete: Cascade)
-  watchlistId Int
+  watchlistId String    @db.ObjectId
 
   @@index([watchlistId])
 }

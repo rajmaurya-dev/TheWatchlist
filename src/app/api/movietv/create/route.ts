@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
         rating: parseFloat(body.rating),
         watchlist: {
           connect: {
-            id: parseInt(body.watchlist),
+            id: body.watchlist,
           },
         },
       },

@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
         review: body.review,
         watchlist: {
           connect: {
-            id: parseInt(body.watchlist),
+            id: body.watchlist,
           },
         },
       },

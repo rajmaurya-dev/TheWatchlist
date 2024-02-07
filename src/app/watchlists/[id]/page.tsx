@@ -12,21 +12,21 @@ interface Item {
     status: string;
     rating: number | null
     review: string | null;
-    watchlsitId: number;
+    watchlsitId: string;
 }
 interface DetailWatchlistProps {
     params: {
-        id: number
+        id: string
     }
 }
 
 
 const DetailWatchlist: React.FC<DetailWatchlistProps> = async ({ params }) => {
     const { userId } = auth()
-    const id = typeof params.id === 'string' ? parseInt(params.id) : params.id
+
     const watchlist = await db.watchlist.findFirst({
         where: {
-            id: id
+            id: params.id
         },
         include: {
             movieTv: true
@@ -55,7 +55,7 @@ const DetailWatchlist: React.FC<DetailWatchlistProps> = async ({ params }) => {
             </div>
             <div className=' mt-10 pt-10'>
 
-                {userId === watchlist?.UserId && <ButtonAction id={id} />}
+                {userId === watchlist?.UserId && <ButtonAction id={params.id} />}
             </div>
         </div>
     )

@@ -9,7 +9,7 @@ import React from 'react'
 import toast from 'react-hot-toast'
 
 interface ButtonActionProps {
-    id: number
+    id: string
 
 }
 const ButtonAction: React.FC<ButtonActionProps> = ({ id }) => {
